@@ -7,7 +7,7 @@
 </head>
 <body>
   <div ng-controller="FilmsController as films">
-    <div ng-repeat="film in films.filmList">
+    <div ng-repeat="film in films.filmList | orderBy:'release_date'">
       <div>{{film.title}}</div>
     </div>
   </div>

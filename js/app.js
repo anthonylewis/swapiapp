@@ -1,21 +1,12 @@
 (function () {
   var app = angular.module('SwapiApp', []);
 
-  app.factory('swapiFilms', ['$http', function($http) {
-    return $http.get('http://swapi.co/api/films/') 
-              .success(function(data) { 
-                return data; 
-              }) 
-              .error(function(err) { 
-                return err; 
-              }); 
-  }]);
-
-  app.controller('FilmsController', ['swapiFilms', function(swapiFilms) {
+  app.controller('FilmsController', ['$http', function($http) {
     var films = this;
 
-    swapiFilms.success(function(data) {
-      films.filmList = data.results;
-    });
+    $http.get('http://swapi.co/api/films/')
+      .success(function(data) {
+        films.filmList = data.results;
+      });
   }]);
 })();

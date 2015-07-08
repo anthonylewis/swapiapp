@@ -7,9 +7,15 @@
 </head>
 <body>
   <div ng-controller="FilmsController as films">
+    <h3>Films</h3>
     <div ng-repeat="film in films.filmList | orderBy:'release_date'">
       <div>{{film.title}}</div>
     </div>
+  </div>
+
+  <div ng-controller="PeopleController as people">
+    <h3>People</h3>
+    <div>{{people.person.name}}</div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>

@@ -3,6 +3,9 @@
 
   app.factory('FilmService', ['$http', function($http) {
     return {
+      getFilm: function(id) {
+        return $http.get('http://swapi.co/api/films/' + id + '/');
+      },
       getFilms: function() {
         return $http.get('http://swapi.co/api/films/');
       }
@@ -13,6 +16,9 @@
     return {
       getPerson: function(id) {
         return $http.get('http://swapi.co/api/people/' + id + '/');
+      },
+      getPeople: function() {
+        return $http.get('http://swapi.co/api/people/');
       }
     }
   }]);

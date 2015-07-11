@@ -23,6 +23,17 @@
     }
   }]);
 
+  app.factory('PlanetsService', ['$http', function($http) {
+    return {
+      getPerson: function(id) {
+        return $http.get('http://swapi.co/api/planets/' + id + '/');
+      },
+      getPlanets: function() {
+        return $http.get('http://swapi.co/api/planets/');
+      }
+    }
+  }]);
+
   app.controller('FilmsController', ['FilmService', function(FilmService) {
     var films = this;
 

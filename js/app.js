@@ -1,52 +1,30 @@
 (function () {
   var app = angular.module('SwapiApp', []);
 
-  app.factory('FilmService', ['$http', function($http) {
+  app.factory('ApiService', ['$http', function($http) {
     return {
-      getFilm: function(id) {
-        return $http.get('http://swapi.co/api/films/' + id + '/');
+      getOne: function(resource, id) {
+        return $http.get('http://swapi.co/api/' + resource + '/' + id + '/');
       },
-      getFilms: function() {
-        return $http.get('http://swapi.co/api/films/');
+      getAll: function(resource) {
+        return $http.get('http://swapi.co/api/' + resource + '/');
       }
     }
   }]);
 
-  app.factory('PeopleService', ['$http', function($http) {
-    return {
-      getPerson: function(id) {
-        return $http.get('http://swapi.co/api/people/' + id + '/');
-      },
-      getPeople: function() {
-        return $http.get('http://swapi.co/api/people/');
-      }
-    }
-  }]);
-
-  app.factory('PlanetsService', ['$http', function($http) {
-    return {
-      getPerson: function(id) {
-        return $http.get('http://swapi.co/api/planets/' + id + '/');
-      },
-      getPlanets: function() {
-        return $http.get('http://swapi.co/api/planets/');
-      }
-    }
-  }]);
-
-  app.controller('FilmsController', ['FilmService', function(FilmService) {
+  app.controller('FilmsController', ['ApiService', function(ApiService) {
     var films = this;
 
-    FilmService.getFilms()
+    ApiService.getAll('films')
       .success(function(data) {
         films.filmList = data.results;
       });
   }]);
 
-  app.controller('PeopleController', ['PeopleService', function(PeopleService) {
+  app.controller('PeopleController', ['ApiService', function(ApiService) {
     var people = this;
 
-    PeopleService.getPerson(1)
+    ApiService.getOne('people', 1)
       .success(function(data) {
         people.person = data;
       });

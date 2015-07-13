@@ -15,7 +15,9 @@
   app.controller('FilmsController', ['ApiService', function(ApiService) {
     var films = this;
 
-    ApiService.getAll('films')
+    films.resource = 'films';
+
+    ApiService.getAll(films.resource)
       .success(function(data) {
         films.filmList = data.results;
       });
@@ -24,7 +26,9 @@
   app.controller('PeopleController', ['ApiService', function(ApiService) {
     var people = this;
 
-    ApiService.getOne('people', 1)
+    people.resource = 'people';
+
+    ApiService.getOne(people.resource, 1)
       .success(function(data) {
         people.person = data;
       });

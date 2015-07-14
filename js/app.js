@@ -34,4 +34,15 @@
       });
   }]);
 
+  app.controller('PlanetsController', ['ApiService', function(ApiService) {
+    var planets = this;
+
+    planets.resource = 'planets';
+
+    ApiService.getOne(planets.resource, 1)
+      .success(function(data) {
+        planets.planet = data;
+      });
+  }]);
+
 })();

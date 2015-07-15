@@ -45,4 +45,15 @@
       });
   }]);
 
+  app.controller('StarshipsController', ['ApiService', function(ApiService) {
+    var starships = this;
+
+    starships.resource = 'starships';
+
+    ApiService.getOne(starships.resource, 10)
+      .success(function(data) {
+        starships.starship = data;
+      });
+  }]);
+
 })();

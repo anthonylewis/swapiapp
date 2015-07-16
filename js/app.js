@@ -45,6 +45,17 @@
       });
   }]);
 
+  app.controller('SpeciesController', ['ApiService', function(ApiService) {
+    var species = this;
+
+    species.resource = 'species';
+
+    ApiService.getOne(species.resource, 1)
+      .success(function(data) {
+        species.species = data;
+      });
+  }]);
+
   app.controller('StarshipsController', ['ApiService', function(ApiService) {
     var starships = this;
 

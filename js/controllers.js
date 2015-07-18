@@ -54,4 +54,15 @@
       });
   }]);
 
+  angular.module('SwapiApp').controller('VehiclesController', ['ApiService', function(ApiService) {
+    var vehicles = this;
+
+    vehicles.resource = 'vehicles';
+
+    ApiService.getOne(vehicles.resource, 4)
+      .success(function(data) {
+        vehicles.vehicle = data;
+      });
+  }]);
+
 })();

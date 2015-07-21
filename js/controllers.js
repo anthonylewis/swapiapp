@@ -1,5 +1,5 @@
 (function () {
-  angular.module('SwapiApp').controller('FilmsController', ['ApiService', function (ApiService) {
+  angular.module('SwapiApp').controller('FilmsCtrl', ['ApiService', function (ApiService) {
     var films = this;
 
     films.resource = 'films';
@@ -10,7 +10,7 @@
       });
   }]);
 
-  angular.module('SwapiApp').controller('PeopleController', ['ApiService', function (ApiService) {
+  angular.module('SwapiApp').controller('PeopleCtrl', ['ApiService', function (ApiService) {
     var people = this;
 
     people.resource = 'people';
@@ -21,7 +21,7 @@
       });
   }]);
 
-  angular.module('SwapiApp').controller('PlanetsController', ['ApiService', function (ApiService) {
+  angular.module('SwapiApp').controller('PlanetsCtrl', ['ApiService', function (ApiService) {
     var planets = this;
 
     planets.resource = 'planets';
@@ -32,7 +32,7 @@
       });
   }]);
 
-  angular.module('SwapiApp').controller('SpeciesController', ['ApiService', function (ApiService) {
+  angular.module('SwapiApp').controller('SpeciesCtrl', ['ApiService', function (ApiService) {
     var species = this;
 
     species.resource = 'species';
@@ -43,7 +43,7 @@
       });
   }]);
 
-  angular.module('SwapiApp').controller('StarshipsController', ['ApiService', function (ApiService) {
+  angular.module('SwapiApp').controller('StarshipsCtrl', ['ApiService', function (ApiService) {
     var starships = this;
 
     starships.resource = 'starships';
@@ -54,7 +54,7 @@
       });
   }]);
 
-  angular.module('SwapiApp').controller('VehiclesController', ['ApiService', function (ApiService) {
+  angular.module('SwapiApp').controller('VehiclesCtrl', ['ApiService', function (ApiService) {
     var vehicles = this;
 
     vehicles.resource = 'vehicles';
